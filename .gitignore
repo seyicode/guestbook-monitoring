@@ -1,0 +1,11 @@
+/bin/
+/node_modules/
+.DS_Store
+
+# Pulumi local state (only if using local backend; keep out of version control)
+.pulumi/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
