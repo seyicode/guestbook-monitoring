@@ -9,3 +9,7 @@
 .vscode/
 .idea/
 *.swp
+
+# Pulumi
+Pulumi.dev.yaml
+package-lock.json

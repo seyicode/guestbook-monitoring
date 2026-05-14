@@ -102,7 +102,7 @@ const feDep = new k8s.apps.v1.Deployment("frontend", {
             spec: {
                 containers: [{
                     name: "php-redis",
-                    image: "gcr.io/google-samples/gb-frontend:v4",
+                    image: "us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5",
                     env: [{ name: "GET_HOSTS_FROM", value: "dns" }],
                     ports: [{ name: "http", containerPort: 80 }],
                 }],
@@ -116,7 +116,7 @@ const feSvc = new k8s.core.v1.Service("frontend", {
         labels: { ...feLabels, "app.kubernetes.io/component": "frontend" },
     },
     spec: {
-        type: isMinikube ? "ClusterIP" : "LoadBalancer",
+        type: "ClusterIP",
         ports: [{ name: "http", port: 80, targetPort: "http" }],
         selector: feLabels,
     },
